@@ -40,7 +40,7 @@ func (t *Training) Parse(datastring string) (err error) {
 	t.TrainingType = a[1]
 	t.Duration = a2
 
-	return nil
+	return err
 }
 
 func (t Training) ActionInfo() (string, error) {
@@ -57,7 +57,7 @@ func (t Training) ActionInfo() (string, error) {
 
 		str1 := fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\n", t.TrainingType, t.Duration.Hours(), distance)
 		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f\n", meanSpeed, calories)
-		return str1 + str2, nil
+		return str1 + str2, err
 
 	} else if t.TrainingType == "Бег" || t.TrainingType == "бег" {
 		calories, err := spentenergy.RunningSpentCalories(t.Steps, t.Weight, t.Height, t.Duration)
@@ -68,7 +68,7 @@ func (t Training) ActionInfo() (string, error) {
 
 		str1 := fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\n", t.TrainingType, t.Duration.Hours(), distance)
 		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f\n", meanSpeed, calories)
-		return str1 + str2, nil
+		return str1 + str2, err
 
 	} else {
 		return "", errors.New("неизвестный тип тренировки")
