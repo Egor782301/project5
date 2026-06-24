@@ -6,20 +6,18 @@ import (
 )
 
 type DataParser interface {
-	// TODO: добавить методы
 	Parse(datastring string) (err error)
 	ActionInfo() (string, error)
 }
 
 func Info(dataset []string, dp DataParser) {
-	// TODO: реализовать функцию
 	for _, i := range dataset {
 		err := dp.Parse(i)
 		if err != nil {
 			log.Println(err)
 		}
-		a, err := dp.ActionInfo()
-		if err != nil {
+		a, err1 := dp.ActionInfo()
+		if err1 != nil {
 			log.Println(err)
 		}
 		fmt.Println(a)

@@ -20,7 +20,6 @@ type Training struct {
 }
 
 func (t *Training) Parse(datastring string) (err error) {
-	// TODO: реализовать функцию
 	a := strings.Split(datastring, ",")
 
 	if len(a) != 3 {
@@ -28,12 +27,12 @@ func (t *Training) Parse(datastring string) (err error) {
 	}
 
 	a1, err := strconv.Atoi(a[0])
-	if err != nil {
+	if err != nil || a1 <= 0 {
 		return errors.New("trainings - неверные данные шагов")
 	}
 
 	a2, err := time.ParseDuration(a[2])
-	if err != nil {
+	if err != nil || a2 <= 0 {
 		return errors.New("trainings - неверные данные временим")
 	}
 

@@ -27,12 +27,12 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	}
 
 	a1, err := strconv.Atoi(a[0])
-	if err != nil {
+	if err != nil || a1 <= 0 {
 		return errors.New("daysteps - неверные данные шагов")
 	}
 
 	a2, err := time.ParseDuration(a[1])
-	if err != nil {
+	if err != nil || a2 <= 0 {
 		return errors.New("daysteps - неверные данные временим")
 	}
 
