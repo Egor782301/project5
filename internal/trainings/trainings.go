@@ -57,7 +57,7 @@ func (t Training) ActionInfo() (string, error) {
 		}
 
 		str1 := fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\n", t.TrainingType, t.Duration.Hours(), distance)
-		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f", meanSpeed, calories)
+		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f\n", meanSpeed, calories)
 		return str1 + str2, nil
 
 	} else if t.TrainingType == "Бег" || t.TrainingType == "бег" {
@@ -68,7 +68,7 @@ func (t Training) ActionInfo() (string, error) {
 		}
 
 		str1 := fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\n", t.TrainingType, t.Duration.Hours(), distance)
-		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f", meanSpeed, calories)
+		str2 := fmt.Sprintf("Скорость: %.2f км/ч\nСожгли калорий: %.2f\n", meanSpeed, calories)
 		return str1 + str2, nil
 
 	} else {
